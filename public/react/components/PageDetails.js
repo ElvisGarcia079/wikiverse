@@ -1,5 +1,8 @@
 import React from 'react';
 
+// import and prepend the api url to any fetch calls
+import apiURL from '../api';
+
 export const PageDetails = ({page, pages, setSelectedPage, setPages}) => {
 
     // Unpacking the fields that are available from the selectedPage/Page Property
@@ -14,9 +17,23 @@ export const PageDetails = ({page, pages, setSelectedPage, setPages}) => {
         tags
     } = page;
 
+    let getPage = async (slug) => {
+        let pageData = await fetch(`${apiURL}/wiki/${slug}`);
+
+        let page = pageData.json();
+        setSelectedPage(page);
+    }
+
+    console.log("The title: " , title);
+    console.log("The author: ", author);
+    console.log("Created At: ", createdAt);
+    console.log("Page Content: ", content);
+    console.log("Page Tags: ", tags);
+
+
     return (
         <>
-            
+            <h1>Check Your Developer Tools Console Dashboard!</h1>
         </>
     )
 }

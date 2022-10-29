@@ -46,7 +46,7 @@ export const App = () => {
 				<PageDetails page={selectedPage} pages={pages} setPages={setPages} setSelectedPage={setSelectedPage}/>
 				:
 
-				<PagesList pages={pages} />
+				<PagesList pages={pages} setSelectedPage={setSelectedPage}/>
 				// If it's false then we will render the List of available Pages here
 			}
 			

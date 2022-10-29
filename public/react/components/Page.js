@@ -5,6 +5,7 @@ export const Page = (props) => {
   let handleClick = () => {
     console.log(props.page);
     // console.log(props.page.authorId);
+    props.setSelectedPage(props.page);
   }
 
   return <>

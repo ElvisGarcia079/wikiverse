@@ -1,11 +1,13 @@
 import React from 'react';
 import { Page } from './Page';
 
-export const PagesList = ({pages}) => {
+// Here we are going to include the setSelectedPage state
+export const PagesList = ({pages, setSelectedPage}) => {
 	return <>
 		{
 			pages.map((page, idx) => {
-				return <Page page={page} key={idx} />
+				// We are going to add the setSelectedPage as a prop to pass down to the page in order to use it to select the page
+				return <Page page={page} key={idx} setSelectedPage={setSelectedPage} />
 			})
 		}
 	</>
