@@ -6,6 +6,7 @@ import apiURL from '../api';
 
 export const App = () => {
 
+	// This state is used to store the value of the current page. Initially this value starts as an empty array. The useEffect hook instantly loads values into this array upon initial loading.
 	const [pages, setPages] = useState([]);
 	
 	
