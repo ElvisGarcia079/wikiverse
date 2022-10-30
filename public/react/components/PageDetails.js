@@ -26,6 +26,15 @@ export const PageDetails = ({page, pages, setSelectedPage, setPages}) => {
     // Since this will trigger a database and fetch call, we will need to async
     let deletePage = async () => {
 
+        // We should fetch the page we want to delete, aka this one.
+        let pageData = await fetch(`${apiURL}/wiki/${page.slug}`, {
+            // This is where we specify the action we want our server to take on this route.
+            method: "DELETE",
+        });
+
+
+        
+
     }
 
 
