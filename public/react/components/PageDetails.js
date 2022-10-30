@@ -22,6 +22,12 @@ export const PageDetails = ({page, pages, setSelectedPage, setPages}) => {
 
     console.log("The page after the deconstructing: \n", tags)
 
+    // Since we are going to have to handle the event, let's create a function to delete the page. 
+    // Since this will trigger a database and fetch call, we will need to async
+    let deletePage = async () => {
+
+    }
+
 
     return (
         <>
@@ -35,6 +41,8 @@ export const PageDetails = ({page, pages, setSelectedPage, setPages}) => {
             {/* <h3><strong>Created At: </strong> {createdAt}</h3> */}
             <br />
             <h3><strong>Tags: </strong> {tags.map((tag, id) => <p key={id}> {id+1}: {tag.name}</p>)}</h3>
+
+            <button onClick={() => deletePage()}>Delete this Page</button>
 
         </>
     )
