@@ -33,8 +33,8 @@ export const App = () => {
 
 	return (
 		<main>	
-      <h1>WikiVerse</h1>
-			<h2>An interesting 📚</h2>
+     
+			
 
 			{
 				// We are checking to see if the value of the selectedPage state is "null" or references an article page
@@ -47,9 +47,12 @@ export const App = () => {
 				// What I would like to do is send the details of the page and selected page to load it's details here.
 				<PageDetails page={selectedPage} setSelectedPage={setSelectedPage} setPages={setPages} pages={pages}/>
 				:
-
-				<PagesList pages={pages} setSelectedPage={setSelectedPage}/>
-				// If it's false then we will render the List of available Pages here
+				<div>
+					 <h1>WikiVerse</h1>
+					<h2>An interesting 📚</h2>
+					{/* // If it's false then we will render the List of available Pages here */}
+					<PagesList pages={pages} setSelectedPage={setSelectedPage}/>
+				</div>
 			}
 			
 		</main>
