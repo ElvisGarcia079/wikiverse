@@ -24,13 +24,21 @@ export const PageDetails = ({page, pages, setSelectedPage, setPages}) => {
 
     // Since we are going to have to handle the event, let's create a function to delete the page. 
     // Since this will trigger a database and fetch call, we will need to async
-    let deletePage = async () => {
+    let deletePage = async (slug) => {
 
         // We should fetch the page we want to delete, aka this one.
-        let pageData = await fetch(`${apiURL}/wiki/${page.slug}`, {
+        let pageData = await fetch(`${apiURL}/wiki/${slug}`, {
             // This is where we specify the action we want our server to take on this route.
             method: "DELETE",
         });
+
+        let page = await pageData.json();
+
+        // We now have to specify that we would like to load all of the pages, minus the one that just got deleted...
+
+        setSelectedPage(null);
+        setPages(pages.filter((page) => page.slug !== slug));
+
 
 
         
@@ -49,9 +57,10 @@ export const PageDetails = ({page, pages, setSelectedPage, setPages}) => {
             <h3><strong>Content: </strong>{content}</h3>
             {/* <h3><strong>Created At: </strong> {createdAt}</h3> */}
             <br />
+            <h3> Created At: </h3>
+            <br />
             <h3><strong>Tags: </strong> {tags.map((tag, id) => <p key={id}> {id+1}: {tag.name}</p>)}</h3>
-
-            <button onClick={() => deletePage()}>Delete this Page</button>
+            <button onClick={() => deletePage(page.slug)}>Delete this Page</button>
 
         </>
     )
