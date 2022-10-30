@@ -3,6 +3,8 @@ import { PagesList } from './PagesList';
 // Must import the newly created "page details" component
 import { PageDetails } from './PageDetails';
 
+import { AddPages } from './AddPage';
+
 // import and prepend the api url to any fetch calls
 import apiURL from '../api';
 
@@ -47,7 +49,7 @@ export const App = () => {
 				?
 				// We will render this
 				<div>
-					<p>Time to Add a Page!</p>
+					<AddPages setIsAddingPage={setIsAddingPage} setPages={setPages} pages={pages}/>
 					<button onClick={() => {fetchPages(); setIsAddingPage(false)}}>Back to Wiki</button>
 				</div>
 				: 

@@ -3,7 +3,9 @@ import React, { useState, useEffect } from 'react';
 // import and prepend the api url to any fetch calls
 import apiURL from '../api';
 
-export const AddPages = (props) => {
+export const AddPages = ({setIsAddingPage, setPages, pages}) => {
+    
+
     // These are the states that we need to create for our Adding Pages. 
 
     // Since we are going to have to track the value of data for our article, we will set a state for each field of the article we need. 
