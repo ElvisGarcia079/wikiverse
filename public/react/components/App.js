@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { PagesList } from './PagesList';
+// Must import the newly created "page details" component
+import { PageDetails } from './PageDetails';
 
 // import and prepend the api url to any fetch calls
 import apiURL from '../api';
@@ -43,7 +45,7 @@ export const App = () => {
 				// <h3>Testing... If you see this then a page has been selected.</h3>
 
 				// What I would like to do is send the details of the page and selected page to load it's details here.
-				<PageDetails page={selectedPage} pages={pages} setPages={setPages} setSelectedPage={setSelectedPage}/>
+				<PageDetails page={selectedPage} setSelectedPage={setSelectedPage} setPages={setPages} pages={pages}/>
 				:
 
 				<PagesList pages={pages} setSelectedPage={setSelectedPage}/>

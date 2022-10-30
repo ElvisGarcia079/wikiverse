@@ -17,18 +17,11 @@ export const PageDetails = ({page, pages, setSelectedPage, setPages}) => {
         tags
     } = page;
 
-    let getPage = async (slug) => {
-        let pageData = await fetch(`${apiURL}/wiki/${slug}`);
-
-        let page = pageData.json();
-        setSelectedPage(page);
-    }
-
-    console.log("The title: " , title);
-    console.log("The author: ", author);
-    console.log("Created At: ", createdAt);
-    console.log("Page Content: ", content);
-    console.log("Page Tags: ", tags);
+    // console.log("The title: " , title);
+    // console.log("The author: ", author);
+    // console.log("Created At: ", createdAt);
+    // console.log("Page Content: ", content);
+    // console.log("Page Tags: ", tags);
 
 
     return (
