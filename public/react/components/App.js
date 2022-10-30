@@ -46,9 +46,12 @@ export const App = () => {
 				// If it's true
 				?
 				// We will render this
-				<p></p>
+				<div>
+					<p>Time to Add a Page!</p>
+					<button onClick={() => {fetchPages(); setIsAddingPage(false)}}>Back to Wiki</button>
+				</div>
 				: 
-				<p></p>
+				<button onClick={() => setIsAddingPage(true)}>Add a Page</button>
 				// If it's not true, we will render this instead
 			}
 
