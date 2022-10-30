@@ -60,6 +60,9 @@ export const PageDetails = ({page, pages, setSelectedPage, setPages}) => {
             <h3> Created At: </h3>
             <br />
             <h3><strong>Tags: </strong> {tags.map((tag, id) => <p key={id}> {id+1}: {tag.name}</p>)}</h3>
+            <br />
+
+            <button onClick={() => setSelectedPage(null)}>Back to Wiki!</button>
             <button onClick={() => deletePage(page.slug)}>Delete this Page</button>
 
         </>

@@ -17,6 +17,12 @@ export const App = () => {
 	const [selectedPage, setSelectedPage] = useState(null);
 
 
+	// We are going to create another state. This one is to keep track of the intent to add a page through the front end to our database. 
+	// We will set the initial state to false because at first it's not going to render any page. We will trigger this with a button.
+	const [isAddingPage, setIsAddingPage] = useState(false);
+
+
+
 	async function fetchPages(){
 		try {
 			const response = await fetch(`${apiURL}/wiki`);
@@ -33,8 +39,18 @@ export const App = () => {
 
 	return (
 		<main>	
-     
-			
+      		<h1>WikiVerse</h1>
+			{
+				// We are checking the intent to add a page
+				isAddingPage
+				// If it's true
+				?
+				// We will render this
+				<p></p>
+				: 
+				<p></p>
+				// If it's not true, we will render this instead
+			}
 
 			{
 				// We are checking to see if the value of the selectedPage state is "null" or references an article page
@@ -48,7 +64,7 @@ export const App = () => {
 				<PageDetails page={selectedPage} setSelectedPage={setSelectedPage} setPages={setPages} pages={pages}/>
 				:
 				<div>
-					 <h1>WikiVerse</h1>
+					
 					<h2>An interesting 📚</h2>
 					{/* // If it's false then we will render the List of available Pages here */}
 					<PagesList pages={pages} setSelectedPage={setSelectedPage}/>
