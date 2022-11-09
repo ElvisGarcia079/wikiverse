@@ -35,7 +35,8 @@ export const AddPages = ({setIsAddingPage, setPages, pages}) => {
         // We expect the content to be a String
     const [tags, setTags] = useState('');
 
-    // We are now going to have to define the submit handler function. 
+   let handleSubmit = async () => {
+        // We are now going to have to define the submit handler function. 
     const response = await fetch(`${apiURL}/wiki`, {
         // Method: This is the type of action we are taking. Creating.
         method: "POST",
@@ -62,6 +63,7 @@ export const AddPages = ({setIsAddingPage, setPages, pages}) => {
            // This is going to load the main page back essentially.
         setIsAddingPage(false);
       }
+   }
 
     // The best way to capture user data is with a Form. So we will work with React Forms. 
 
@@ -69,12 +71,21 @@ export const AddPages = ({setIsAddingPage, setPages, pages}) => {
     return (
         <>
         {/* Creating a Form for Gathering the Necessary Data for creating this article */}
-            <form action="submit">
-                <input type="text" value={"Enter Article Title"}/>
-                <input type="text" value={"Enter the Author Name"}/>
-                <input type="text" value={"Enter the Content"}/>
-                <input type="text" value={"Enter the Tags"}/>
-                <button onSubmit={() => handleSubmit()}>Submit Article</button>
+            <form onSubmit={() => handleSubmit()}>
+                <p>Title:</p>
+                <input type="text" onChange={(ev) => setTitle(ev.target.value)} value={title}/>
+                <br/>
+                <p>Author Name:</p>
+                <input type="text" onChange={(ev) => setAuthorName(ev.target.value)} value={authorName}/>
+                <br/>
+                <p>Content:</p>
+                <input type="text" onChange={(ev) => setContent(ev.target.value)} value={content}/>
+                <br/>
+                <p>Tags:</p>
+                <input type="text" onChange={(ev) => setTags(ev.target.value)} value={tags}/>
+                <br/>
+                <button type='submit'>Submit Article</button>
+                <br/>
             </form>
         </>
     )
